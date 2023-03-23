@@ -19,9 +19,13 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 const NAAR_LINKS = 65;
+  const naar_links = 37;
 const NAAR_RECHTS = 68;
+  const naar_rechts = 39;
 const RECHTDOOR = 87;
+  const rechtdoor = 38;
 const ACHTERUIT = 83;
+  const achteruit = 40;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -38,15 +42,27 @@ var beweegAlles = function() {
   if (keyIsDown(NAAR_LINKS)) {
       spelerX = spelerX - 1;
   }
-    if (keyIsDown(NAAR_RECHTS)) {
+      if (keyIsDown(naar_links)) {
+        spelerX = spelerX - 1;
+      }
+  if (keyIsDown(NAAR_RECHTS)) {
       spelerX = spelerX + 1;
   }
+      if (keyIsDown(naar_rechts)) {
+        spelerX = spelerX + 1;
+      }
   if (keyIsDown(RECHTDOOR)) {
       spelerY = spelerY - 1;
   }
+      if (keyIsDown(rechtdoor) {
+        spelerY = spelerY - 1;
+      }
   if (keyIsDown(ACHTERUIT)) {
       spelerY = spelerY + 1;
   }
+      if (keyIsDown(achteruit)) {
+        spelerY = spelerY + 1;
+      }
   // vijand
 
   // kogel
