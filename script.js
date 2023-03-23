@@ -27,6 +27,7 @@ const RECHTDOOR = 87;
 const ACHTERUIT = 83;
   const achteruit = 40;
 
+
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 
@@ -54,7 +55,7 @@ var beweegAlles = function() {
   if (keyIsDown(RECHTDOOR)) {
       spelerY = spelerY - 1;
   }
-      if (keyIsDown(rechtdoor) {
+      if (keyIsDown(rechtdoor)) {
         spelerY = spelerY - 1;
       }
   if (keyIsDown(ACHTERUIT)) {
