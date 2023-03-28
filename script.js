@@ -30,6 +30,7 @@ const ACHTERUIT = 83;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+var  snelheidspeler = 5;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -41,28 +42,28 @@ var spelerY = 600; // y-positie van speler
 var beweegAlles = function() {
   // speler
   if (keyIsDown(NAAR_LINKS)) {
-      spelerX = spelerX - 1;
+      spelerX = spelerX - snelheidspeler;
   }
       if (keyIsDown(naar_links)) {
-        spelerX = spelerX - 1;
+        spelerX = spelerX - snelheidspeler;
       }
   if (keyIsDown(NAAR_RECHTS)) {
-      spelerX = spelerX + 1;
+      spelerX = spelerX + snelheidspeler;
   }
       if (keyIsDown(naar_rechts)) {
-        spelerX = spelerX + 1;
+        spelerX = spelerX + snelheidspeler;
       }
   if (keyIsDown(RECHTDOOR)) {
-      spelerY = spelerY - 1;
+      spelerY = spelerY - snelheidspeler;
   }
       if (keyIsDown(rechtdoor)) {
-        spelerY = spelerY - 1;
+        spelerY = spelerY - snelheidspeler;
       }
   if (keyIsDown(ACHTERUIT)) {
-      spelerY = spelerY + 1;
+      spelerY = spelerY + snelheidspeler;
   }
       if (keyIsDown(achteruit)) {
-        spelerY = spelerY + 1;
+        spelerY = spelerY + snelheidspeler;
       }
   // vijand
 
