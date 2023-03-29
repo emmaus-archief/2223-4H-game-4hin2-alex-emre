@@ -91,6 +91,7 @@ var tekenAlles = function() {
   // achtergrond
 fill("red");
   rect (0,0,1280,720);
+  rect
   // vijand
 
   // kogel

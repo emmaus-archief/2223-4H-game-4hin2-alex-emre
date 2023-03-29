@@ -18,3 +18,13 @@ https://emmauscollege.github.io/informatica/game/
 - icon <br>
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
+
+stap 1 : border maken
+stap 2 : dood instellen
+stap 3 : interactie tussen snake an soep maken
+stap 3a: 
+stap 3b:
+stap 3c: 
+stap 4 : snoep blok veranderen in echt snoep
+stap 5 : setting instellen
+stap 6 : kleuren instellen
