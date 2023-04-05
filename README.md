@@ -28,3 +28,4 @@ stap 3c:
 stap 4 : snoep blok veranderen in echt snoep
 stap 5 : setting instellen
 stap 6 : kleuren instellen
+stap 7 : spel afronden
