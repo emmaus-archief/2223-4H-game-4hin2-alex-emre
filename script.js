@@ -27,6 +27,8 @@ const RECHTDOOR = 87;
 const ACHTERUIT = 83;
   const achteruit = 40;
 
+var BORDER_X_LEFT = 400;
+
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
@@ -65,6 +67,10 @@ var beweegAlles = function() {
       if (keyIsDown(achteruit)) {
         spelerY = spelerY + snelheidspeler;
       }
+
+if (spelerX < BORDER_X_LEFT + SPELERGROOTTE /2) {
+    spelerX =
+}
   // vijand
 
   // kogel
@@ -91,7 +97,8 @@ var tekenAlles = function() {
   // achtergrond
 fill("red");
   rect (0,0,1280,720);
-  rect
+  stroke('white');
+  rect (400,200,500,500)
   // vijand
 
   // kogel
