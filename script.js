@@ -19,20 +19,23 @@ const SPELEN = 1;
 const GAMEOVER = 2;
 var spelStatus = SPELEN;
 const NAAR_LINKS = 65;
-  const naar_links = 37;
+const naar_links = 37;
 const NAAR_RECHTS = 68;
-  const naar_rechts = 39;
+const naar_rechts = 39;
 const RECHTDOOR = 87;
-  const rechtdoor = 38;
+const rechtdoor = 38;
 const ACHTERUIT = 83;
-  const achteruit = 40;
+const achteruit = 40;
 
 var BORDER_X_LEFT = 400;
+var BORDER_X_RIGHT = 
+var BORDER_Y_TOP = 200;
+var SPELERGROOTTE = 50;
 
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var  snelheidspeler = 5;
+var snelheidspeler = 5;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -41,36 +44,40 @@ var  snelheidspeler = 5;
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
+
 var beweegAlles = function() {
   // speler
-  if (keyIsDown(NAAR_LINKS)) {
-      spelerX = spelerX - snelheidspeler;
+    if (keyIsDown(NAAR_LINKS)) {
+    spelerX = spelerX - snelheidspeler;
   }
-      if (keyIsDown(naar_links)) {
-        spelerX = spelerX - snelheidspeler;
-      }
-  if (keyIsDown(NAAR_RECHTS)) {
-      spelerX = spelerX + snelheidspeler;
+   if (keyIsDown(naar_links)) {
+    spelerX = spelerX - snelheidspeler;
   }
-      if (keyIsDown(naar_rechts)) {
-        spelerX = spelerX + snelheidspeler;
-      }
-  if (keyIsDown(RECHTDOOR)) {
-      spelerY = spelerY - snelheidspeler;
+   if (keyIsDown(NAAR_RECHTS)) {
+    spelerX = spelerX + snelheidspeler;
   }
-      if (keyIsDown(rechtdoor)) {
-        spelerY = spelerY - snelheidspeler;
-      }
-  if (keyIsDown(ACHTERUIT)) {
-      spelerY = spelerY + snelheidspeler;
+    if (keyIsDown(naar_rechts)) {
+    spelerX = spelerX + snelheidspeler;
   }
-      if (keyIsDown(achteruit)) {
-        spelerY = spelerY + snelheidspeler;
-      }
+   if (keyIsDown(RECHTDOOR)) {
+    spelerY = spelerY - snelheidspeler;
+  }
+   if (keyIsDown(rechtdoor)) {
+    spelerY = spelerY - snelheidspeler;
+  }
+   if (keyIsDown(ACHTERUIT)) {
+    spelerY = spelerY + snelheidspeler;
+  }
+    if (keyIsDown(achteruit)) {
+    spelerY = spelerY + snelheidspeler;
+  }
 
-if (spelerX < BORDER_X_LEFT + SPELERGROOTTE /2) {
-    spelerX =
-}
+    if (spelerX < BORDER_X_LEFT + SPELERGROOTTE / 2) {
+    spelerX = BORDER_X_LEFT + SPELERGROOTTE / 2;
+  }
+    if (spelerY < BORDER_Y_TOP + SPELERGROOTTE / 2) {
+    spelerY = BORDER_Y_TOP + SPELERGROOTTE / 2;
+    }
   // vijand
 
   // kogel
@@ -95,10 +102,13 @@ var verwerkBotsing = function() {
  */
 var tekenAlles = function() {
   // achtergrond
-fill("red");
-  rect (0,0,1280,720);
-  stroke('white');
-  rect (400,200,500,500)
+    fill("red");
+    rect(0, 0, 1280, 720);
+    stroke('white');
+
+  // border van het speelveld
+    rect(400, 200, 500, 500)
+  
   // vijand
 
   // kogel
