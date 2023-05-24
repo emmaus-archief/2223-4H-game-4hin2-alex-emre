@@ -30,6 +30,7 @@ const achteruit = 40;
 var BORDER_X_LEFT = 400;
 var BORDER_X_RIGHT = 900;
 var BORDER_Y_TOP = 200;
+var BORDER_Y_BOTTOM = 650;
 var SPELERGROOTTE = 50;
 
 
@@ -80,6 +81,9 @@ var beweegAlles = function() {
   }
     if (spelerX > BORDER_X_RIGHT - SPELERGROOTTE / 2) {
       spelerX = BORDER_X_RIGHT - SPELERGROOTTE / 2;
+    }
+    if (spelerY > BORDER_Y_BOTTOM + SPELERGROOTTE / 2) {
+        spelerY = BORDER_Y_BOTTOM + SPELERGROOTTE / 2;
     }
   // vijand
 
