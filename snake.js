@@ -15,9 +15,14 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
+
+var aantal = 0;
+
 const SPELEN = 1;
 const GAMEOVER = 2;
-var spelStatus = SPELEN;
+const UITLEG = 3;
+
+var spelStatus = UITLEG;
 const NAAR_LINKS = 65;
 const naar_links = 37;
 const NAAR_RECHTS = 68;
@@ -37,8 +42,8 @@ var SPELERGROOTTE = 50;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var snelheidspeler = 5;
-var appelX = random(400,200)
-var appelY = random(400,200)
+var appelX = 500;
+var appelY = 500;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -98,9 +103,16 @@ var beweegAlles = function() {
  * Updatet globale variabelen punten en health
  */
 var verwerkBotsing = function() {
-  // botsing speler tegen vijand
-
-  // botsing kogel tegen vijand
+  // botsing speler tegen appel
+    if (spelerX - appelX < 50 &&
+        spelerX - appelX > -50 &&
+        spelerY - appelY < 50 &&
+        spelerY - appelY > -50) {
+        aantal = aantal + 1;
+        console.log('Botsing' + aantal);
+        }
+  // botsing speler tegen speelveld
+   
 
   // update punten en health
 
@@ -121,7 +133,11 @@ var tekenAlles = function() {
   // vijand
 
   // appel
-  rect(appelX, appelY, 50, 50)
+  fill('green')
+  rect(appelX - 25, appelY - 25, 50, 50);
+  fill('black');
+  ellipse(appelX, appelY, 10, 10);
+  
   
   // speler
   fill("white");
@@ -138,6 +154,14 @@ var tekenAlles = function() {
  * anders return false
  */
 var checkGameOver = function() {
+  if (spelerX - appelX < 50 &&
+      spelerX - appelX > -50 &&
+      spelerY - appelY < 50 &&
+      spelerY - appelY > -50) {
+        aantal = aantal + 1;
+        console.log('Botsing' + aantal);
+        return true;
+        }
   // check of HP 0 is , of tijd op is, of ...
   return false;
 };
@@ -172,9 +196,30 @@ function draw() {
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
+      console.log('spelen');
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+      console.log('game over');
+       textSize(50);
+       fill('white');
+       text('game over, druk op spatie om opnieuw te gaan', 100, 100);
+      if (keyIsDown(32)) { // spatie
+        spelStatus = UITLEG; 
+      }
+  }
+    if (spelStatus === UITLEG) {
+    // teken uitleg scherm
+      console.log('uitleg');
+      textSize(50);
+      fill('red');
+      rect(0, 0, 1280, 720);
+       fill('white');
+       text('druk op enter', 100, 100);
+      if (keyIsDown(13)) { // enter
+        spelerX = 600;
+        spelerY = 600;
+        spelStatus = SPELEN;
+      }
   }
 }
