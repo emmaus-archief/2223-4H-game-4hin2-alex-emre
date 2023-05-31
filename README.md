@@ -29,3 +29,12 @@ stap 4 : snoep blok veranderen in echt snoep
 stap 5 : setting instellen
 stap 6 : kleuren instellen
 stap 7 : spel afronden
+
+NIEUW PLAN:
+- teken groene appelvierkant
+- maak variabel punten
+- zet punten op scherm
+- detecteer botsing tussen wit en appel
+- als appel geraakt dan punt en appel op nieuwe plek tip: appelX = random(400, 800)
+- game over als border aangeraakt
+  verder: snake langer maken enzovoort
