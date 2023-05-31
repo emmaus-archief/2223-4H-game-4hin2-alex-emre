@@ -37,6 +37,8 @@ var SPELERGROOTTE = 50;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var snelheidspeler = 5;
+var appelX = random(400,200)
+var appelY = random(400,200)
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -118,8 +120,9 @@ var tekenAlles = function() {
   
   // vijand
 
-  // kogel
-
+  // appel
+  rect(appelX, appelY, 50, 50)
+  
   // speler
   fill("white");
   rect(spelerX - 25, spelerY - 25, 50, 50);
