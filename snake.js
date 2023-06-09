@@ -99,6 +99,7 @@ var verwerkBotsing = function() {
     spelerY - appelY > -50) {
     punt = punt + 1;
     appelX = random(400, 800)
+    appelY = random(400, 800)
     console.log('punt');
   }
   // botsing speler tegen speelveld
@@ -121,14 +122,11 @@ var tekenAlles = function() {
   // border van het speelveld
   rect(400, 200, 500, 500)
 
-
-
   // appel
   fill('green')
   rect(appelX - 25, appelY - 25, 50, 50);
   fill('black');
   ellipse(appelX, appelY, 10, 10);
-
 
   // speler
   fill("white");
@@ -206,16 +204,17 @@ function draw() {
     text('game over, druk op spatie om opnieuw te gaan', 100, 175);
     if (keyIsDown(32)) { // spatie
       spelStatus = UITLEG;
+      punt = 0;
     }
   }
   if (spelStatus === UITLEG) {
     // teken uitleg scherm
     console.log('uitleg');
     textSize(50);
-    fill('red');
+    fill('green');
     rect(0, 0, 1280, 720);
     fill('white');
-    text('druk op enter', 100, 100);
+    text('druk op enter', 500, 100);
     if (keyIsDown(13)) { // enter
       spelerX = 600;
       spelerY = 600;
