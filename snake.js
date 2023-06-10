@@ -43,8 +43,8 @@ var SPELERGROOTTE = 50;
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
 var snelheidspeler = 5;
-var appelX = 500;
-var appelY = 500;
+var appelX = 500;  // x-positie van de appel in het begin van het spel
+var appelY = 500;  // y-positie van de appel in het begin van het spel
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -98,8 +98,8 @@ var verwerkBotsing = function() {
     spelerY - appelY < 50 &&
     spelerY - appelY > -50) {
     punt = punt + 1;
-    appelX = random(400, 800)
-    appelY = random(400, 800)
+    appelX = random(450, 850)
+    appelY = random(450, 850)
     console.log('punt');
   }
   // botsing speler tegen speelveld
@@ -205,6 +205,8 @@ function draw() {
     if (keyIsDown(32)) { // spatie
       spelStatus = UITLEG;
       punt = 0;
+      appelX = random(450, 850)
+      appelY = random(450, 850)
     }
   }
   if (spelStatus === UITLEG) {
