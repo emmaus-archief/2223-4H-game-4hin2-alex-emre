@@ -1,3 +1,4 @@
+
 Deze repo is onderdeel van het vak informatica op het Emmauscollege Rotterdam.
 
 [Meer info over deze opdracht](https://informatica.emmauscollege.nl/)
@@ -19,22 +20,4 @@ https://emmauscollege.github.io/informatica/game/
         http://www.iconarchive.com/show/android-lollipop-icons-by-dtafalonso/Play-Games-icon.html
 - ...
 
-stap 1 : border maken
-stap 2 : dood instellen
-stap 3 : interactie tussen snake an soep maken
-stap 3a: 
-stap 3b:
-stap 3c: 
-stap 4 : snoep blok veranderen in echt snoep
-stap 5 : setting instellen
-stap 6 : kleuren instellen
-stap 7 : spel afronden
-
-NIEUW PLAN:
-- teken groene appelvierkant
-- maak variabel punten
-- zet punten op scherm
-- detecteer botsing tussen wit en appel
-- als appel geraakt dan punt en appel op nieuwe plek tip: appelX = random(400, 800)
-- game over als border aangeraakt
-  verder: snake langer maken enzovoort
+Plan veranderd.
