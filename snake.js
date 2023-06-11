@@ -12,6 +12,7 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
+
 var aantal = 0;
 var punt = 0;
 var highscore = 0;
@@ -42,8 +43,9 @@ var spelerY = 600;   //y-positie van speler
 var snelheidspeler = 5;
 var appelX = 500;
 var appelY = 500;
-var appelX = 500;  // x-positie van de appel in het begin van het spel
-var appelY = 500;  // y-positie van de appel in het begin van het spel
+
+var spelerGrootteX = SPELERGROOTTE;
+var spelerGrootteY = SPELERGROOTTE;
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -92,8 +94,10 @@ var verwerkBotsing = function() {
     spelerY - appelY < 50 &&
     spelerY - appelY > -50) {
     punt = punt + 1;
-    appelX = random(400, 800)
-    appelY = random(400, 800)
+    appelX = random(400, 800);
+    appelY = random(400, 800);
+    spelerGrootteX += 10;
+    spelerGrootteY += 10;
     console.log('punt');
   }
   // update punten en health
@@ -118,7 +122,7 @@ var tekenAlles = function() {
   
   // speler
   fill("white");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
+  rect(spelerX - spelerGrootteX / 2, spelerY - spelerGrootteY / 2, spelerGrootteX, spelerGrootteY);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
   
@@ -132,34 +136,36 @@ var tekenAlles = function() {
 function isFoodEaten() {
   if (spelerX === appelX && spelerY === appelY) {
     placeFood();
-    score++; //Verhoog de score
+    score++; 
     if (score > highscore){
-      highscore = score; //Update de highscore indien nodig
+      highscore = score; 
     }
     return true;
   }
   return false;
 }
 
- //* return true als het gameover is
- /* anders return false
+ /**
+ * return true als het gameover is
+ * anders return false
  */
 var checkGameOver = function() {
-  if (spelerX < BORDER_X_LEFT + SPELERGROOTTE / 2) {
+  if (spelerX < BORDER_X_LEFT + spelerGrootteX / 2) {
     return true;
   }
-  if (spelerY < BORDER_Y_TOP + SPELERGROOTTE / 2) {
+  if (spelerY < BORDER_Y_TOP + spelerGrootteY / 2) {
     return true;
   }
-  if (spelerX > BORDER_X_RIGHT - SPELERGROOTTE / 2) {
+  if (spelerX > BORDER_X_RIGHT - spelerGrootteX / 2) {
     return true;
   }
-  if (spelerY > BORDER_Y_BOTTOM + SPELERGROOTTE / 2) {
+  if (spelerY > BORDER_Y_BOTTOM + spelerGrootteY / 2) {
     return true;
   }
   // check of HP 0 is , of tijd op is, of ...
   return false;
 };
+
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
@@ -168,6 +174,7 @@ var checkGameOver = function() {
  * de code in deze functie wordt één keer uitgevoerd door
  * de p5 library, zodra het spel geladen is in de browser
  */
+
 function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
@@ -189,33 +196,42 @@ function draw() {
     if (checkGameOver()) {
       spelStatus = GAMEOVER;
     }
-    console.log('spelen');
-  }
-  if (spelStatus === GAMEOVER) {
-    // teken game-over scherm
-    console.log('game over');
+  } else if (spelStatus === GAMEOVER) {
+    // teken game over scherm
+    background("red");
     textSize(50);
     fill('white');
-    text('game over, druk op spatie om opnieuw te gaan', 100, 175);
-    if (keyIsDown(32)) { // spatie
-      spelStatus = UITLEG;
-      punt = 0;
-      appelX = random(450, 850)
-      appelY = random(450, 850)
+    text("Game Over!", 540, 300);
+    textSize(30);
+    text("Opnieuw proberen? Druk op enter. ", 400, 400);
+    text("Score:" + punt, 570, 500);
+    if (punt > highscore) {
+      highscore = punt;
     }
-  }
-  if (spelStatus === UITLEG) {
-    // teken uitleg scherm
-    console.log('uitleg');
+    text("Highscore:" + highscore, 540, 550);
+  } else if (spelStatus === UITLEG) {
+    background("blue");
     textSize(50);
-    fill('green');
-    rect(0, 0, 1280, 720);
     fill('white');
-    text('druk op enter', 500, 100);
-    if (keyIsDown(13)) { // enter
-      spelerX = 600;
-      spelerY = 600;
-      spelStatus = SPELEN;
-    }
+    text("SNAKE", 570, 100);
+    textSize(30);
+    text("Beweeg met pijltjestoetsen of WASD", 400, 400);
+    text("Druk op spatie om te beginnen", 400, 500);
+  }
+};
+
+// bij drukken van een toets
+function keyPressed() {
+  if (keyCode === 32 && spelStatus === UITLEG) {
+    spelStatus = SPELEN;
+  }
+  if (keyIsDown(13)) {
+    spelStatus = UITLEG;
+    spelerX = 600;
+    spelerY = 600;
+    appelX = random(400, 800);
+    appelY = random(400, 800);
+    spelerGrootteX = SPELERGROOTTE;
+    spelerGrootteY = SPELERGROOTTE;
   }
 }
